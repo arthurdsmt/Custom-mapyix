@@ -6,6 +6,7 @@ class CustomMap extends HTMLElement {
     this.style.width = '100%';
     this.style.height = '100vh';
     this.style.backgroundColor = '#f5f5f5';
+    console.log("🚀 CustomMap is running!");
 
     const NUM_OBJECTS = 50;
     const MAP_SIZE = 100 * NUM_OBJECTS;
