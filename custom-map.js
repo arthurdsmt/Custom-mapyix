@@ -27,15 +27,22 @@ class CustomMap extends HTMLElement {
 
     const wrapper = document.createElement("div");
     wrapper.style.position = "absolute";
-    wrapper.style.left = "0";
-    wrapper.style.top = "0";
     wrapper.style.width = `${MAP_SIZE}px`;
     wrapper.style.height = `${MAP_SIZE}px`;
-    wrapper.style.transform = `translate(-${MAP_SIZE / 2}px, -${MAP_SIZE / 2}px)`;
     wrapper.style.left = '50%';
     wrapper.style.top = '50%';
-    wrapper.style.border = '2px dashed red';
+    wrapper.style.transform = `translate(-${MAP_SIZE / 2}px, -${MAP_SIZE / 2}px)`;
+    wrapper.style.border = '2px dashed red'; // optional debug
     this.appendChild(wrapper);
+
+    const testBox = document.createElement("div");
+    testBox.style.width = '100px';
+    testBox.style.height = '100px';
+    testBox.style.backgroundColor = 'green';
+    testBox.style.position = 'absolute';
+    testBox.style.left = `${centerX}px`;
+    testBox.style.top = `${centerY}px`;
+    wrapper.appendChild(testBox);
 
     const objects = Array.from({ length: NUM_OBJECTS }).map((_, i) => {
       const ratio = aspectRatios[i % aspectRatios.length];
