@@ -31,6 +31,10 @@ class CustomMap extends HTMLElement {
     wrapper.style.top = "0";
     wrapper.style.width = `${MAP_SIZE}px`;
     wrapper.style.height = `${MAP_SIZE}px`;
+    wrapper.style.transform = `translate(-${MAP_SIZE / 2}px, -${MAP_SIZE / 2}px)`;
+    wrapper.style.left = '50%';
+    wrapper.style.top = '50%';
+    wrapper.style.border = '2px dashed red';
     this.appendChild(wrapper);
 
     const objects = Array.from({ length: NUM_OBJECTS }).map((_, i) => {
