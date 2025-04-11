@@ -1,58 +1,21 @@
 class CustomMap extends HTMLElement {
   connectedCallback() {
-    this.style.display = 'block';
-    this.style.position = 'relative';
-    this.style.overflow = 'hidden';
-    this.style.width = '100%';
-    this.style.height = '100vh';
-    this.style.backgroundColor = '#f5f5f5';
-    console.log("🚀 CustomMap is running!");
+  this.style.display = 'block';
+  this.style.backgroundColor = '#f0f0f0';
+  this.style.height = '100vh';
+  this.style.width = '100%';
 
-    const NUM_OBJECTS = 50;
-    const MAP_SIZE = 100 * NUM_OBJECTS;
-    const VIEW_RADIUS = 2000;
-    const REPULSION_STRENGTH = 50000;
-    const DAMPING = 0.9;
-    const CENTER_PULL = 0.05;
+  const box = document.createElement('div');
+  box.style.width = '200px';
+  box.style.height = '200px';
+  box.style.backgroundColor = 'blue';
+  box.style.position = 'absolute';
+  box.style.left = '100px';
+  box.style.top = '100px';
+  this.appendChild(box);
 
-    const centerX = MAP_SIZE / 2;
-    const centerY = MAP_SIZE / 2;
-    
-    const aspectRatios = [
-      { width: 4, height: 3 },
-      { width: 16, height: 9 },
-      { width: 1, height: 1 },
-      { width: 3, height: 4 },
-      { width: 9, height: 16 },
-    ];
-
-    const wrapper = document.createElement("div");
-    wrapper.style.position = "absolute";
-    wrapper.style.left = "0";
-    wrapper.style.top = "0";
-    wrapper.style.width = `${MAP_SIZE}px`;
-    wrapper.style.height = `${MAP_SIZE}px`;
-    this.appendChild(wrapper);
-
-    const objects = Array.from({ length: NUM_OBJECTS }).map((_, i) => {
-      const ratio = aspectRatios[i % aspectRatios.length];
-      const r = Math.floor(Math.random() * 256);
-      const g = Math.floor(Math.random() * 256);
-      const b = Math.floor(Math.random() * 256);
-      const color = `rgb(${r}, ${g}, ${b})`;
-      return {
-        id: i,
-        x: centerX + (Math.random() - 0.5) * 100,
-        y: centerY + (Math.random() - 0.5) * 100,
-        vx: 0,
-        vy: 0,
-        widthRatio: ratio.width,
-        heightRatio: ratio.height,
-        color,
-        name: `Project ${i + 1}`,
-        company: `Company ${i % 3 + 1}`,
-        year: 2020 + (i % 5),
-      };
+  console.log("✅ Basic box rendered");
+}
     });
 
     // Force-directed simulation
